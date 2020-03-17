@@ -51,6 +51,13 @@
                                 @lang('labels.backend.access.roles.management')
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{
+                                active_class(Route::is('admin/auth/comment*'))
+                            }}" href="{{ route('admin.auth.comment.index') }}">
+                                @lang('labels.backend.access.comments.management')
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
