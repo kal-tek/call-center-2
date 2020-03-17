@@ -35,11 +35,11 @@
                         <tbody>
                         @foreach($comments as $comment)
                             <tr>
-                                <td>{{ $comment->last_name }}</td>
-                                <td>{{ $comment->first_name }}</td>
+                                <td>{{ $comment->lastName }}</td>
+                                <td>{{ $comment->firstName }}</td>
                                 <td>{{ $comment->comment }}</td>
                                 <td>{{ $comment->status }}</td>
-                                <td>@include('backend.auth.comments.includes.actions', ['comment' => $comment])</td>
+                                <td>@include('backend.auth.comment.includes.actions', ['comment' => $comment])</td>
                             </tr>
                         @endforeach
                         </tbody>
