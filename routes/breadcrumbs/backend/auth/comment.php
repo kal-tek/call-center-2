@@ -13,3 +13,7 @@ Breadcrumbs::for('admin.auth.comment.edit', function ($trail, $id) {
     $trail->parent('admin.auth.comment.index');
     $trail->push(__('menus.backend.access.comments.edit'), route('admin.auth.comment.edit', $id));
 });
+Breadcrumbs::for('admin.auth.comment.show', function ($trail, $id) {
+    $trail->parent('admin.auth.comment.index');
+    $trail->push(__('menus.backend.access.comments.show'), route('admin.auth.comment.show', $id));
+});
