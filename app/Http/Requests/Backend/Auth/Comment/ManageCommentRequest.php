@@ -13,7 +13,7 @@ class ManageCommentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return $this->user()->isAdmin();
     }
 
     /**
