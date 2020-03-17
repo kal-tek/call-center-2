@@ -49,6 +49,21 @@ return [
                     'total' => 'role total|roles total',
                 ],
             ],
+            'comments' => [
+                'create' => 'Create Comment',
+                'edit' => 'Edit Comment',
+                'management' => 'Comment Management',
+
+                'table' => [
+                    'number_of_comments' => 'Number of Users',
+                    'first_name' => 'First Name',
+                    'last_name' => 'Last Name',
+                    'comment' => 'Comment',
+                    'status' => 'Status',
+                    'sort' => 'Sort',
+                    'total' => 'Comment total|comments total',
+                ],
+            ],
 
             'users' => [
                 'active' => 'Active Users',

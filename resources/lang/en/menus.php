@@ -23,6 +23,13 @@ return [
                 'management' => 'Role Management',
                 'main' => 'Roles',
             ],
+            'comments' => [
+                'all' => 'All Comments',
+                'create' => 'Create Comment',
+                'edit' => 'Edit Comment',
+                'management' => 'Comment Management',
+                'main' => 'Comments',
+            ],
 
             'users' => [
                 'all' => 'All Users',
