@@ -28,6 +28,8 @@
                             <th>@lang('labels.backend.access.comments.table.first_name')</th>
                             <th>@lang('labels.backend.access.comments.table.comment')</th>
                             <th>@lang('labels.backend.access.comments.table.status')</th>
+                            <th>@lang('labels.general.actions')</th>
+
                         </tr>
                         </thead>
                         <tbody>
@@ -37,6 +39,7 @@
                                 <td>{{ $comment->first_name }}</td>
                                 <td>{{ $comment->comment }}</td>
                                 <td>{{ $comment->status }}</td>
+                                <td>@include('backend.auth.comments.includes.actions', ['comment' => $comment])</td>
                             </tr>
                         @endforeach
                         </tbody>
