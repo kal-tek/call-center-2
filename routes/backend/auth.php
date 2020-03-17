@@ -72,4 +72,17 @@ Route::group([
             Route::delete('/', [RoleController::class, 'destroy'])->name('role.destroy');
         });
     });
+
+    // Comment Management
+    Route::group(['namespace' => 'Role'], function () {
+        Route::get('comment', [CommentController::class, 'index'])->name('comment.index');
+        Route::get('comment/create', [CommentController::class, 'create'])->name('comment.create');
+        Route::post('comment', [CommentController::class, 'store'])->name('comment.store');
+
+        Route::group(['prefix' => 'comment/{comment}'], function () {
+            Route::get('edit', [CommentController::class, 'edit'])->name('comment.edit');
+            Route::patch('/', [CommentController::class, 'update'])->name('comment.update');
+            Route::delete('/', [CommentController::class, 'destroy'])->name('comment.destroy');
+        });
+    });
 });
