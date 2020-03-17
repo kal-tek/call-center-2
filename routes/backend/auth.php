@@ -83,6 +83,7 @@ Route::group([
 
         Route::group(['prefix' => 'comment/{comment}'], function () {
             Route::get('edit', [CommentController::class, 'edit'])->name('comment.edit');
+            Route::get('show', [CommentController::class, 'show'])->name('comment.show');
             Route::patch('/', [CommentController::class, 'update'])->name('comment.update');
             Route::delete('/', [CommentController::class, 'destroy'])->name('comment.destroy');
         });
