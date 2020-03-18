@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Auth\Comment\ManageCommentRequest;
 use App\Http\Requests\Backend\Auth\Comment\StoreCommentRequest;
 use App\Http\Requests\Backend\Auth\Comment\UpdateCommentRequest;
+use App\Http\Requests\Backend\Auth\Comment\ForwardCommentRequest;
 use App\Models\Auth\Comment;
 use App\Repositories\Backend\Auth\CommentRepository;
 
@@ -83,14 +84,32 @@ class CommentController extends Controller
       $this->commentRepository->update($comment, $request->only(
             'status', 
             'department', 
-            'last_update_by'
+            'last_update_by',
+            'notes'
        ));
 
       return redirect()->route('admin.auth.comment.index')->withFlashSuccess(__('alerts.backend.comments.updated'));
   }
+
+  public function send(ForwardCommentRequest $request, Comment $comment)
+  {
+      $this->commentRepository->send($comment, $request->only(
+            'department', 
+            'last_update_by',
+            'notes'
+       ));
+
+      return redirect()->route('admin.auth.comment.index')->withFlashSuccess(__('alerts.backend.comments.forwarded'));
+  }
   public function show(ManageCommentRequest $request, Comment $comment)
   {
       return view('backend.auth.comment.show')
+          ->withComment($comment);
+  }
+
+  public function forward(ForwardCommentRequest $request, Comment $comment)
+  {
+      return view('backend.auth.comment.forward')
           ->withComment($comment);
   }
 
