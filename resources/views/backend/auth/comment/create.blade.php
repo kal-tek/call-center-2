@@ -94,6 +94,7 @@
                         <div class="col">
                             <div class="form-group">
                                 {{ html()->hidden('user_id', Auth::user()->id) }}
+                                {{ html()->hidden('status', 'pending') }}
                             </div><!--form-group-->
                         </div><!--col-->
                     </div><!--row-->
