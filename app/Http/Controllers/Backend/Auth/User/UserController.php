@@ -74,7 +74,8 @@ class UserController extends Controller
             'confirmed',
             'confirmation_email',
             'roles',
-            'permissions'
+            'permissions',
+            'department'
         ));
 
         return redirect()->route('admin.auth.user.index')->withFlashSuccess(__('alerts.backend.users.created'));
@@ -124,6 +125,7 @@ class UserController extends Controller
             'first_name',
             'last_name',
             'email',
+            'department',
             'roles',
             'permissions'
         ));

@@ -33,7 +33,7 @@
                             <th>@lang('labels.backend.access.users.table.confirmed')</th>
                             <th>@lang('labels.backend.access.users.table.roles')</th>
                             <th>@lang('labels.backend.access.users.table.other_permissions')</th>
-                            <th>@lang('labels.backend.access.users.table.social')</th>
+                            <th>@lang('labels.backend.access.users.table.department')</th>
                             <th>@lang('labels.backend.access.users.table.last_updated')</th>
                             <th>@lang('labels.general.actions')</th>
                         </tr>
@@ -47,7 +47,13 @@
                                 <td>@include('backend.auth.user.includes.confirm', ['user' => $user])</td>
                                 <td>{{ $user->roles_label }}</td>
                                 <td>{{ $user->permissions_label }}</td>
-                                <td>@include('backend.auth.user.includes.social-buttons', ['user' => $user])</td>
+                                <td> 
+                                    @if($user->department)  
+                                        {{ $user->department}} 
+                                    @else 
+                                        N/A 
+                                    @endif
+                                </td>
                                 <td>{{ $user->updated_at->diffForHumans() }}</td>
                                 <td class="btn-td">@include('backend.auth.user.includes.actions', ['user' => $user])</td>
                             </tr>

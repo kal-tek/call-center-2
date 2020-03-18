@@ -47,6 +47,16 @@
                                     ->required() }}
                             </div><!--col-->
                         </div><!--form-group-->
+                        <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.backend.access.users.department'))->class('col-md-2 form-control-label')->for('department') }}
+
+                            <div class="col-md-10">
+                                {{ html()->select('department')
+                                    ->class('form-control')
+                                    ->options(['IT'=>'IT', 'ITC'=>'ITC', 'marketing'=>'MARKETING'])
+                                }}
+                            </div><!--col-->
+                        </div><!--form-group-->
 
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.users.email'))->class('col-md-2 form-control-label')->for('email') }}
