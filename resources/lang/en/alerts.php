@@ -18,6 +18,11 @@ return [
             'deleted' => 'The role was successfully deleted.',
             'updated' => 'The role was successfully updated.',
         ],
+        'comments' => [
+            'created' => 'The comment was successfully created.',
+            'forwarded' => 'The comment was successfully forwarded.',
+            'updated' => 'The comment was successfully updated.',
+        ],
 
         'users' => [
             'cant_resend_confirmation' => 'The application is currently set to manually approve users.',

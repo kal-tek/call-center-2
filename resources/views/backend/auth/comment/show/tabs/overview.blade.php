@@ -55,7 +55,7 @@
             </tr>
 
             <tr>
-                <th>@lang('labels.backend.access.comments.tabs.content.overview.lastUpdatedAt')</th>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.last_updated_at')</th>
                 <td>
                     @if($comment->updated_at)
                         {{ timezone()->convertToLocal($comment->updated_at) }}({{ $comment->updated_at->diffForHumans() }})

@@ -29,6 +29,10 @@ return [
                 'edit' => 'Edit Comment',
                 'management' => 'Comment Management',
                 'main' => 'Comments',
+                'view' => 'view',
+                'show' => 'Show',
+                'forward' => 'Forward',
+
             ],
 
             'users' => [

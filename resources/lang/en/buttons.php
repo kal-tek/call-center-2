@@ -40,7 +40,8 @@ return [
     'general' => [
         'cancel' => 'Cancel',
         'continue' => 'Continue',
-
+        'resolve' => 'Resolve',
+        'forward' => 'Forward',
         'crud' => [
             'create' => 'Create',
             'delete' => 'Delete',

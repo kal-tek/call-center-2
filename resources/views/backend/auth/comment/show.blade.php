@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('labels.backend.access.comment.management') . ' | ' . __('labels.backend.access.comment.view'))
+@section('title', __('labels.backend.access.comments.management') . ' | ' . __('labels.backend.access.comments.view'))
 
 @section('content')
 <div class="card">
@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col-sm-5">
                 <h4 class="card-title mb-0">
-                    @lang('labels.backend.access.comment.management')
-                    <small class="text-muted">@lang('labels.backend.access.comment.view')</small>
+                    @lang('labels.backend.access.comments.management')
+                    <small class="text-muted">@lang('labels.backend.access.comments.view')</small>
                 </h4>
             </div><!--col-->
             <div class="col-sm-7">                
@@ -31,7 +31,7 @@
             <div class="col">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-expanded="true"><i class="fas fa-comment"></i> @lang('labels.backend.access.comment.tabs.titles.overview')</a>
+                        <a class="nav-link active" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-expanded="true"><i class="fas fa-comment"></i> @lang('labels.backend.access.comments.tabs.titles.overview')</a>
                     </li>
                 </ul>
 

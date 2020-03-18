@@ -53,7 +53,8 @@ return [
                 'create' => 'Create Comment',
                 'edit' => 'Edit Comment',
                 'management' => 'Comment Management',
-
+                'view' => 'View',
+                'forward' => 'Forward',
                 'table' => [
                     'number_of_comments' => 'Number of Users',
                     'first_name' => 'First Name',
@@ -61,7 +62,36 @@ return [
                     'comment' => 'Comment',
                     'status' => 'Status',
                     'sort' => 'Sort',
+                    'notes' => 'notes',
                     'total' => 'Comment total|comments total',
+                ],
+
+                'tabs' => [
+                    'titles' => [
+                        'overview' => 'Overview',
+                        'history' => 'History',
+                    ],
+
+                    'content' => [
+                        'overview' => [
+                            'service_number' => 'Service No',
+
+                            'firstName' => 'First Name',
+                            'lastName' => 'Last Name',
+                            'phone' => 'Phone',
+                            'comment' => 'Comment',
+                            'created_by' => 'Created By',
+                            'created_at' => 'Created At',
+                            'deleted_at' => 'Deleted At',
+                            'email' => 'E-mail',
+                            'notes' => 'Note',
+                            'last_updated_at' => 'Last Updated at',
+                            'first_name' => 'First Name',
+                            'last_update_by' => 'Last Update By',
+                            'status' => 'Status',
+                            'timezone' => 'Timezone',
+                        ],
+                    ],
                 ],
             ],
 
