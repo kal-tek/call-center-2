@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Backend\Auth\Comment;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Spatie\Permission\Models\Permission;
+
 
 class ForwardCommentRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class ForwardCommentRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->isAdmin();
+        return $this->user()->hasPermissionTo('comment-own-department-forward');
     }
 
     /**
