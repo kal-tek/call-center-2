@@ -13,7 +13,7 @@
                 </a>
             </li>
 
-            @if ($logged_in_user->isAdmin())
+            @if (Auth::user()->hasPermissionTo('view backend'))
                 <li class="nav-title">
                     @lang('menus.backend.sidebar.system')
                 </li>

@@ -63,7 +63,7 @@
                         <div class="col-md-10">
                             {{ html()->select('department')
                                 ->class('form-control')
-                                ->options(['IT'=>'IT', 'ITC'=>'ITC', 'marketing'=>'MARKETING'])
+                                ->options(['IT'=>'IT', 'ITC'=>'ITC', 'marketing'=>'MARKETING', '' => ''])
                             }}
                         </div><!--col-->
                     </div><!--form-group-->
