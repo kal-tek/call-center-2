@@ -178,6 +178,7 @@ return [
                     'name' => 'Name',
                     'last_name' => 'Last Name',
                     'first_name' => 'First Name',
+                    'department' => 'Department',
                     'other_permissions' => 'Other Permissions',
                     'password' => 'Password',
                     'password_confirmation' => 'Password Confirmation',
