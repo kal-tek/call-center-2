@@ -16,5 +16,6 @@ class Comment extends Model
         'status',
         'last_update_by',
         'user_id',
+        'notes'
     ];
 }
