@@ -85,7 +85,8 @@ Route::group([
             Route::get('edit', [CommentController::class, 'edit'])->name('comment.edit');
             Route::get('show', [CommentController::class, 'show'])->name('comment.show');
             Route::patch('/', [CommentController::class, 'update'])->name('comment.update');
-            Route::delete('/', [CommentController::class, 'destroy'])->name('comment.destroy');
+            Route::patch('/send', [CommentController::class, 'send'])->name('comment.send');
+            Route::get('forward', [CommentController::class, 'forward'])->name('comment.forward');
         });
     });
 });
