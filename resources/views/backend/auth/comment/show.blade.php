@@ -12,6 +12,19 @@
                     <small class="text-muted">@lang('labels.backend.access.comment.view')</small>
                 </h4>
             </div><!--col-->
+            <div class="col-sm-7">                
+                <div class="btn-toolbar float-right" role="toolbar" aria-label="@lang('labels.general.toolbar_btn_groups')">
+                    <a class="dropdown-item" href="{{ route('admin.auth.comment.update', $comment->id) }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('resolve-form').submit();">
+                        @lang('buttons.general.resolve')
+                    </a>
+                    {{ html()->modelForm($comment, 'PATCH', route('admin.auth.comment.update', $comment->id))->id('resolve-form')->class('form-horizontal')->open() }}
+                    {{ html()->hidden('last_update_by', Auth::user()->id) }}
+                    {{ html()->hidden('status', 'completed') }}
+                    {{ html()->hidden('department', $comment->department) }}
+                </div>
+            </div><!--col-->
         </div><!--row-->
 
         <div class="row mt-4 mb-4">
