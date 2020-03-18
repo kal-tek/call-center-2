@@ -27,6 +27,7 @@
                             <th>@lang('labels.backend.access.comments.table.last_name')</th>
                             <th>@lang('labels.backend.access.comments.table.first_name')</th>
                             <th>@lang('labels.backend.access.comments.table.comment')</th>
+                            <th>@lang('labels.backend.access.comments.table.department')</th>
                             <th>@lang('labels.backend.access.comments.table.status')</th>
                             <th>@lang('labels.general.actions')</th>
 
@@ -34,13 +35,30 @@
                         </thead>
                         <tbody>
                         @foreach($comments as $comment)
-                            <tr>
-                                <td>{{ $comment->lastName }}</td>
-                                <td>{{ $comment->firstName }}</td>
-                                <td>{{ $comment->comment }}</td>
-                                <td>{{ $comment->status }}</td>
-                                <td>@include('backend.auth.comment.includes.actions', ['comment' => $comment])</td>
-                            </tr>
+                            @if(isset(Auth::user()->department))
+                                @if($comment->department != Auth::user()->department)
+                                    @continue
+                                @else                                 
+                                <tr>
+                                    <td>{{ $comment->lastName }}</td>
+                                    <td>{{ $comment->firstName }}</td>
+                                    <td>{{ $comment->comment }}</td>
+                                    <td>{{ $comment->department }}</td>
+                                    <td>{{ $comment->status }}</td>
+                                    <td>@include('backend.auth.comment.includes.actions', ['comment' => $comment])</td>
+                                </tr>
+                                @endif
+                            @else                                 
+                                <tr>
+                                    <td>{{ $comment->lastName }}</td>
+                                    <td>{{ $comment->firstName }}</td>
+                                    <td>{{ $comment->comment }}</td>
+                                    <td>{{ $comment->department }}</td>
+                                    <td>{{ $comment->status }}</td>
+                                    <td>@include('backend.auth.comment.includes.actions', ['comment' => $comment])</td>
+                                </tr>
+                            @endif
+
                         @endforeach
                         </tbody>
                     </table>
