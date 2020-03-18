@@ -1,0 +1,69 @@
+<div class="col">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.service_number')</th>
+                <td>{{ $comment->id }}</td>
+            </tr>
+
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.firstName')</th>
+                <td>{{ $comment->firstName }}</td>
+            </tr>
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.lastName')</th>
+                <td>{{ $comment->lastName }}</td>
+            </tr>
+
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.phone')</th>
+                <td>{{ $comment->phoneNo }}</td>
+            </tr>
+
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.comment')</th>
+                <td>{{ $comment->comment }}</td>
+            </tr>
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.created_by')</th>
+                <td>{{ $comment->user_id }}</td>
+            </tr>
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.created_at')</th>
+                <td>{{ timezone()->convertToLocal($comment->created_at) }}({{ $comment->created_at->diffForHumans() }})</td>
+            </tr>
+
+
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.status')</th>
+                <td>{{ $comment->status }}</td>
+            </tr>
+
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.notes')</th>
+                <td>
+                    @if($comment->notes)
+                        {{ $comment->notes }}
+                    @else
+                        N/A
+                    @endif
+                </td>
+            </tr>
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.last_update_by')</th>
+                <td>{{ $comment->last_update_by }}</td>
+            </tr>
+
+            <tr>
+                <th>@lang('labels.backend.access.comments.tabs.content.overview.lastUpdatedAt')</th>
+                <td>
+                    @if($comment->updated_at)
+                        {{ timezone()->convertToLocal($comment->updated_at) }}({{ $comment->updated_at->diffForHumans() }})
+                    @else
+                        N/A
+                    @endif
+                </td>
+            </tr>
+        </table>
+    </div>
+</div><!--table-responsive-->
