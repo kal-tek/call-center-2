@@ -45,60 +45,46 @@
                         </div><!--col-->
                     </div><!--form-group-->
                     
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('validation.attributes.frontend.phone'))->for('phone') }}
-                                <div class="col-md-10">
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.frontend.phone'))->class('col-md-2 form-control-label')->for('phone') }}
+                        <div class="col-md-10">
 
-                                {{ html()->text('phoneNo')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.frontend.phone'))
-                                    ->attribute('maxlength', 191)
+                        {{ html()->text('phoneNo')
+                            ->class('form-control')
+                            ->placeholder(__('validation.attributes.frontend.phone'))
+                            ->attribute('maxlength', 191)
 
-                                    ->readOnly() }}
-                                </div><!--col-->
-
-                            </div><!--form-group-->
+                            ->readOnly() }}
                         </div><!--col-->
-                    </div><!--row-->
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('validation.attributes.frontend.message'))->for('message') }}
-
-                                {{ html()->textarea('comment')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.frontend.message'))
-                                    ->attribute('rows', 3) }}
-
-                            </div><!--form-group-->
-                        </div><!--col-->
-                    </div><!--row-->
+                    </div><!--form-group-->
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.frontend.message'))->class('col-md-2 form-control-label')->for('message') }}
+                    <div class="col-md-10">
+                        {{ html()->textarea('comment')
+                            ->class('form-control')
+                            ->placeholder(__('validation.attributes.frontend.message'))
+                            ->attribute('rows', 3) }}
+                    </div>
+                    </div><!--form-group-->
                    
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('department'))->for('department') }}
-
-                                {{ html()->select('department')
-                                    ->class('form-control')
-                                    ->options(['IT'=>'IT', 'ITC'=>'ITC'])
-                                }}
-                            </div><!--form-group-->
-                        </div><!--col-->
-                        <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('status'))->for('status') }}
-
-                                {{ html()->select('status')
-                                    ->class('form-control')
-                                    ->options(['pending'=>'pending', 'completed'=>'completed'])
-                                }}
-                            </div><!--form-group-->
-                        </div><!--col-->
-                    </div><!--row-->
+                    <div class="form-group row">
+                        {{ html()->label(__('Department'))->class('col-md-2 form-control-label')->for('department') }}
+                        <div class="col-md-10">
+                            {{ html()->select('department')
+                                ->class('form-control')
+                                ->options(['IT'=>'IT', 'ITC'=>'ITC'])
+                            }}
+                        </div>
+                    </div><!--form-group-->
+                    <div class="form-group row">
+                        {{ html()->label(__('status'))->class('col-md-2 form-control-label')->for('status') }}
+                        <div class="col-md-10">      
+                            {{ html()->select('status')
+                                ->class('form-control')
+                                ->options(['pending'=>'pending', 'completed'=>'completed'])
+                            }}
+                        </div>
+                    </div><!--form-group-->
                 </div><!--col-->
             </div><!--row-->
         </div><!--card-body-->

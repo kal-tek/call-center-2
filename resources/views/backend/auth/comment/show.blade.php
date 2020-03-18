@@ -14,7 +14,7 @@
             </div><!--col-->
             <div class="col-sm-7">                
                 <div class="btn-toolbar float-right" role="toolbar" aria-label="@lang('labels.general.toolbar_btn_groups')">
-                    <a class="dropdown-item" href="{{ route('admin.auth.comment.update', $comment->id) }}"
+                    <a class="btn btn-success" href="{{ route('admin.auth.comment.update', $comment->id) }}"
                         onclick="event.preventDefault();
                         document.getElementById('resolve-form').submit();">
                         @lang('buttons.general.resolve')
@@ -31,7 +31,11 @@
             <div class="col">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-expanded="true"><i class="fas fa-comment"></i> @lang('labels.backend.access.comments.tabs.titles.overview')</a>
+                        <a class="nav-link active" data-toggle="tab" href="#overview"
+                            role="tab" aria-controls="overview" aria-expanded="true"
+                            ><i class="fas fa-comment"></i> 
+                            @lang('labels.backend.access.comments.tabs.titles.overview')
+                        </a>
                     </li>
                 </ul>
 

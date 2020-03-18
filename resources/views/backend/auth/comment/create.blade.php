@@ -33,7 +33,7 @@
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                    {{ html()->label(__('validation.attributes.backend.access.users.last_name'))->class('col-md-2 form-control-label')->for('last_name') }}
+                        {{ html()->label(__('validation.attributes.backend.access.users.last_name'))->class('col-md-2 form-control-label')->for('last_name') }}
 
                         <div class="col-md-10">
                             {{ html()->text('last_name')
@@ -44,46 +44,44 @@
                         </div><!--col-->
                     </div><!--form-group-->
                     
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('validation.attributes.frontend.phone'))->for('phone') }}
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.frontend.phone'))->class('col-md-2 form-control-label')->for('phone') }}
+                        <div class="col-md-10">
+
+                            {{ html()->text('phone')
+                                ->class('form-control')
+                                ->placeholder(__('validation.attributes.frontend.phone'))
+                                ->attribute('maxlength', 191)
+                                ->required() }}
+                        </div><!--col-->
+
+                    </div><!--form-group-->
+
+                            <div class="form-group row">
+                                {{ html()->label(__('validation.attributes.frontend.message'))->class('col-md-2 form-control-label')->for('message') }}
                                 <div class="col-md-10">
-
-                                {{ html()->text('phone')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.frontend.phone'))
-                                    ->attribute('maxlength', 191)
-                                    ->required() }}
-                                </div><!--col-->
-
+                                    {{ html()->textarea('message')
+                                        ->class('form-control')
+                                        ->placeholder(__('validation.attributes.frontend.message'))
+                                        ->attribute('rows', 3)
+                                        ->required() }}
+                                </div>
+                                
                             </div><!--form-group-->
-                        </div><!--col-->
-                    </div><!--row-->
 
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('validation.attributes.frontend.message'))->for('message') }}
-
-                                {{ html()->textarea('message')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.frontend.message'))
-                                    ->attribute('rows', 3)
-                                    ->required() }}
-                            </div><!--form-group-->
-                        </div><!--col-->
-                    </div><!--row-->
                    
                     <div class="row">
                         <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('department'))->for('department') }}
+                            <div class="form-group row">
+                                {{ html()->label(__('department'))->class('col-md-2 form-control-label')->for('department') }}
+                                <div class="col-md-10">
 
                                 {{ html()->select('department')
                                     ->class('form-control')
                                     ->options(['IT'=>'IT', 'ITC'=>'ITC'])
                                     ->required() }}
+
+                                </div>
                             </div><!--form-group-->
                         </div><!--col-->
                     </div><!--row-->

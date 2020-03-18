@@ -20,49 +20,31 @@
 
             <div class="row mt-4">
                 <div class="col">
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('validation.attributes.frontend.message'))->for('message') }}
-
-                                {{ html()->textarea('comment')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.frontend.message'))
-                                    ->attribute('rows', 3) }}
-
-                            </div><!--form-group-->
-                        </div><!--col-->
-                    </div><!--row-->
-                   
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('department'))->for('department') }}
-
-                                {{ html()->select('department')
-                                    ->class('form-control')
-                                    ->options(['IT'=>'IT', 'ITC'=>'ITC'])
-                                }}
-                            </div><!--form-group-->
-                        </div><!--col-->
-                    </div><!--row-->
-
-                    
-
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                {{ html()->label(__('validation.attributes.frontend.notes'))->for('notes') }}
-
-                                {{ html()->textarea('notes')
-                                    ->class('form-control')
-                                    ->placeholder(__('validation.attributes.frontend.notes'))
-                                    ->attribute('rows', 3) }}
-
-                            </div><!--form-group-->
-                        </div><!--col-->
-                    </div><!--row-->
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.frontend.message'))->class('col-md-2 form-control-label ')->for('message') }}
+                        <div class="col-md-10">
+                            {{ html()->span($comment->comment)
+                                ->class('form-control readonly') }}
+                        </div>
+                    </div><!--form-group-->
+                    <div class="form-group row">
+                        {{ html()->label(__('Forward to'))->class('col-md-2 form-control-label')->for('department') }}
+                        <div class="col-md-10">
+                            {{ html()->select('department')
+                                ->class('form-control')
+                                ->options(['IT'=>'IT', 'ITC'=>'ITC'])
+                            }}
+                        </div>
+                    </div><!--form-group-->
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.frontend.notes'))->class('col-md-2 form-control-label')->for('notes') }}
+                        <div class="col-md-10">
+                            {{ html()->textarea('notes')
+                                ->class('form-control')
+                                ->placeholder(__('validation.attributes.frontend.notes'))
+                                ->attribute('rows', 3) }}
+                        </div>
+                    </div><!--form-group-->
 
                 </div><!--col-->
             </div><!--row-->
