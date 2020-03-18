@@ -82,6 +82,25 @@ class CommentRepository extends BaseRepository
             throw new GeneralException(__('exceptions.backend.access.comments.update_error'));
         });
     }
+    public function send(Comment $comment, array $data): Comment
+    {
+        // $this->checkCommentById($comment, $data['id']);
+
+        return DB::transaction(function () use ($comment, $data) {
+            if ($comment->update([
+                'department' => $data['department'],
+                'notes' => $data['notes'],
+                'last_update_by' => $data['last_update_by'],
+            ])) {
+
+                // event(new UserUpdated($comment));
+
+                return $comment;
+            }
+
+            throw new GeneralException(__('exceptions.backend.access.comments.update_error'));
+        });
+    }
 
 
         /**
