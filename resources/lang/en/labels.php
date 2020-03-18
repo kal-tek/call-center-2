@@ -126,6 +126,7 @@ return [
                     'abilities' => 'Abilities',
                     'roles' => 'Roles',
                     'social' => 'Social',
+                    'department' => 'Department',
                     'total' => 'user total|users total',
                 ],
 
@@ -149,6 +150,7 @@ return [
                             'first_name' => 'First Name',
                             'last_name' => 'Last Name',
                             'status' => 'Status',
+                            'department' => 'Department',
                             'timezone' => 'Timezone',
                         ],
                     ],
