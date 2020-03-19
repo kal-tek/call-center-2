@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <th>@lang('labels.backend.access.comments.tabs.content.overview.created_by')</th>
-                <td>{{ $comment->user_id }}</td>
+                <td>{{ $created_by }}</td>
             </tr>
             <tr>
                 <th>@lang('labels.backend.access.comments.tabs.content.overview.created_at')</th>
@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <th>@lang('labels.backend.access.comments.tabs.content.overview.last_update_by')</th>
-                <td>{{ $comment->last_update_by }}</td>
+                <td>{{ $last_update_by }}</td>
             </tr>
 
             <tr>
