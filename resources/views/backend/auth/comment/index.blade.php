@@ -44,7 +44,7 @@
                                     <td>{{ $comment->firstName }}</td>
                                     <td>{{ $comment->comment }}</td>
                                     <td>{{ $comment->department }}</td>
-                                    <td>{{ $comment->status }}</td>
+                                    <td><span class="text-uppercase {{ $comment->status != 'completed' ? 'text-warning' : 'text-success'}}">{{ $comment->status }}</span></td>
                                     <td>@include('backend.auth.comment.includes.actions', ['comment' => $comment])</td>
                                 </tr>
                                 @endif
@@ -54,7 +54,7 @@
                                     <td>{{ $comment->firstName }}</td>
                                     <td>{{ $comment->comment }}</td>
                                     <td>{{ $comment->department }}</td>
-                                    <td>{{ $comment->status }}</td>
+                                    <td><span class="text-uppercase {{ $comment->status != 'completed' ? 'text-warning' : 'text-success'}}">{{ $comment->status }}</span></td>
                                     <td>@include('backend.auth.comment.includes.actions', ['comment' => $comment])</td>
                                 </tr>
                             @endif

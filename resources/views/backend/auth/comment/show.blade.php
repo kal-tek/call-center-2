@@ -13,7 +13,7 @@
                 </h4>
             </div><!--col-->
             <div class="col-sm-7">                
-                <div class="btn-toolbar float-right" role="toolbar" aria-label="@lang('labels.general.toolbar_btn_groups')">
+                <div class="btn-toolbar float-right  {{ $comment->status != 'completed' ? '' : 'd-none'}}" role="toolbar" aria-label="@lang('labels.general.toolbar_btn_groups')">
                     <a class="btn btn-success" href="{{ route('admin.auth.comment.update', $comment->id) }}"
                         onclick="event.preventDefault();
                         document.getElementById('resolve-form').submit();">

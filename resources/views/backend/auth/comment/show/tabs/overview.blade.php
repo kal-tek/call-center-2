@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <th>@lang('labels.backend.access.comments.tabs.content.overview.created_by')</th>
-                <td>{{ $created_by }}</td>
+                <td class="text-primary">{{ $created_by }}</td>
             </tr>
             <tr>
                 <th>@lang('labels.backend.access.comments.tabs.content.overview.created_at')</th>
@@ -36,7 +36,7 @@
 
             <tr>
                 <th>@lang('labels.backend.access.comments.tabs.content.overview.status')</th>
-                <td>{{ $comment->status }}</td>
+                <td><span class="text-uppercase font-weight-bold {{ $comment->status != 'completed' ? 'text-warning' : 'text-success'}}">{{ $comment->status }}</span></td>
             </tr>
 
             <tr>
@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <th>@lang('labels.backend.access.comments.tabs.content.overview.last_update_by')</th>
-                <td>{{ $last_update_by }}</td>
+                <td class="text-primary">{{ $last_update_by }}</td>
             </tr>
 
             <tr>
