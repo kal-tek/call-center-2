@@ -22,7 +22,7 @@
 
             <tr>
                 <th>@lang('labels.backend.access.comments.tabs.content.overview.comment')</th>
-                <td>{{ $comment->comment }}</td>
+                <td style="white-space: unset;">{{ $comment->comment }}</td>
             </tr>
             <tr>
                 <th>@lang('labels.backend.access.comments.tabs.content.overview.created_by')</th>

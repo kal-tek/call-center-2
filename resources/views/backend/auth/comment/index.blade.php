@@ -40,20 +40,20 @@
                                     @continue
                                 @else                                 
                                 <tr>
-                                    <td>{{ $comment->lastName }}</td>
-                                    <td>{{ $comment->firstName }}</td>
-                                    <td>{{ $comment->comment }}</td>
-                                    <td>{{ $comment->department }}</td>
+                                    <td class="text-capitalize">{{ $comment->lastName }}</td>
+                                    <td class="text-capitalize">{{ $comment->firstName }}</td>
+                                    <td class="text-capitalize">{{ $comment->comment }}</td>
+                                    <td class="text-capitalize">{{ $comment->department }}</td>
                                     <td><span class="text-uppercase {{ $comment->status != 'completed' ? 'text-warning' : 'text-success'}}">{{ $comment->status }}</span></td>
                                     <td>@include('backend.auth.comment.includes.actions', ['comment' => $comment])</td>
                                 </tr>
                                 @endif
                             @else                                 
                                 <tr>
-                                    <td>{{ $comment->lastName }}</td>
-                                    <td>{{ $comment->firstName }}</td>
-                                    <td>{{ $comment->comment }}</td>
-                                    <td>{{ $comment->department }}</td>
+                                    <td class="text-capitalize">{{ $comment->lastName }}</td>
+                                    <td class="text-capitalize">{{ $comment->firstName }}</td>
+                                    <td class="text-capitalize">{{ $comment->comment }}</td>
+                                    <td class="text-capitalize">{{ $comment->department }}</td>
                                     <td><span class="text-uppercase {{ $comment->status != 'completed' ? 'text-warning' : 'text-success'}}">{{ $comment->status }}</span></td>
                                     <td>@include('backend.auth.comment.includes.actions', ['comment' => $comment])</td>
                                 </tr>
