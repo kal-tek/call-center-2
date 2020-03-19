@@ -13,7 +13,7 @@ class StoreCommentRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->hasPermissionTo('Comment-create');
+        return $this->user()->hasPermissionTo('comment-create');
     }
 
     /**

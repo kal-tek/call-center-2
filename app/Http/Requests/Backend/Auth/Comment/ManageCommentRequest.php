@@ -13,7 +13,7 @@ class ManageCommentRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->hasPermissionTo('comment-list');
+        return $this->user()->hasAnyPermission('comment-list', 'comment-own-department-list');
     }
 
     /**
