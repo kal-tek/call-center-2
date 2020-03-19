@@ -63,6 +63,7 @@ return [
                     'status' => 'Status',
                     'sort' => 'Sort',
                     'notes' => 'notes',
+                    'department' => 'department',
                     'total' => 'Comment total|comments total',
                 ],
 
@@ -90,6 +91,8 @@ return [
                             'last_update_by' => 'Last Update By',
                             'status' => 'Status',
                             'timezone' => 'Timezone',
+                            'department' => 'department',
+
                         ],
                     ],
                 ],
