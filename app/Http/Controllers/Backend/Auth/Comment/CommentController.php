@@ -9,6 +9,8 @@ use App\Http\Requests\Backend\Auth\Comment\UpdateCommentRequest;
 use App\Http\Requests\Backend\Auth\Comment\ForwardCommentRequest;
 use App\Models\Auth\Comment;
 use App\Repositories\Backend\Auth\CommentRepository;
+use App\Models\Auth\User;
+
 
 class CommentController extends Controller
 {
@@ -46,71 +48,75 @@ class CommentController extends Controller
     * @throws \App\Exceptions\GeneralException
     * @throws \Throwable
     */
-   public function store(StoreCommentRequest $request)
-   {
-       $this->commentRepository->create($request->only(
-            'first_name', 
-            'last_name', 
-            'phone', 
-            'message', 
-            'department', 
-            'user_id'
+    public function store(StoreCommentRequest $request)
+    {
+        $this->commentRepository->create($request->only(
+                'first_name', 
+                'last_name', 
+                'phone', 
+                'message', 
+                'department', 
+                'user_id'
+            ));
+
+        return redirect()->route('admin.auth.comment.index')->withFlashSuccess(__('alerts.backend.comments.created'));
+    }  
+    
+    /**
+        * @param ManageCommentRequest $request
+        * @param Comment              $comment
+        *
+        * @return mixed
+        */
+    public function edit(ManageCommentRequest $request, Comment $comment)
+    {
+        return view('backend.auth.comment.edit')
+            ->withComment($comment);
+    }  
+        
+    /**
+     * @param  UpdateCommentRequest  $request
+     *
+     * @return mixed
+     * @throws \App\Exceptions\GeneralException
+     * @throws \Throwable
+     */
+    public function update(UpdateCommentRequest $request, Comment $comment)
+    {
+        $this->commentRepository->update($comment, $request->only(
+                'status', 
+                'department', 
+                'last_update_by',
+                'notes'
         ));
 
-       return redirect()->route('admin.auth.comment.index')->withFlashSuccess(__('alerts.backend.comments.created'));
-   }  
-   
-   /**
-    * @param ManageCommentRequest $request
-    * @param Comment              $comment
-    *
-    * @return mixed
-    */
-   public function edit(ManageCommentRequest $request, Comment $comment)
-   {
-       return view('backend.auth.comment.edit')
-           ->withComment($comment);
-   }  
-    
-   /**
-   * @param  UpdateCommentRequest  $request
-   *
-   * @return mixed
-   * @throws \App\Exceptions\GeneralException
-   * @throws \Throwable
-   */
-  public function update(UpdateCommentRequest $request, Comment $comment)
-  {
-      $this->commentRepository->update($comment, $request->only(
-            'status', 
-            'department', 
-            'last_update_by',
-            'notes'
-       ));
+        return redirect()->route('admin.auth.comment.index')->withFlashSuccess(__('alerts.backend.comments.updated'));
+    }
 
-      return redirect()->route('admin.auth.comment.index')->withFlashSuccess(__('alerts.backend.comments.updated'));
-  }
+    public function send(ForwardCommentRequest $request, Comment $comment)
+    {
+        $this->commentRepository->send($comment, $request->only(
+                'department', 
+                'last_update_by',
+                'notes'
+        ));
 
-  public function send(ForwardCommentRequest $request, Comment $comment)
-  {
-      $this->commentRepository->send($comment, $request->only(
-            'department', 
-            'last_update_by',
-            'notes'
-       ));
+        return redirect()->route('admin.auth.comment.index')->withFlashSuccess(__('alerts.backend.comments.forwarded'));
+    }
+    public function show(ManageCommentRequest $request, Comment $comment)
+    {
+            $created_by = User::find($comment->user_id)->email;
+            $last_update_by = User::find($comment->last_update_by)->email;
+            return view('backend.auth.comment.show')
+                ->withComment($comment)
+                ->with('last_update_by', $last_update_by)
+                ->with('created_by', $created_by);
+    }
 
-      return redirect()->route('admin.auth.comment.index')->withFlashSuccess(__('alerts.backend.comments.forwarded'));
-  }
-  public function show(ManageCommentRequest $request, Comment $comment)
-  {
-      return view('backend.auth.comment.show')
-          ->withComment($comment);
-  }
-
-  public function forward(ForwardCommentRequest $request, Comment $comment)
-  {
-      return view('backend.auth.comment.forward')
-          ->withComment($comment);
-  }
+    public function forward(ForwardCommentRequest $request, Comment $comment)
+    {
+        return view('backend.auth.comment.forward')
+            ->withComment($comment);
+    }
 
 }
