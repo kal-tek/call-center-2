@@ -76,6 +76,7 @@ trait UserMethod
         return $this->hasRole(config('access.users.admin_role'));
     }
 
+
     /**
      * @return bool
      */
@@ -84,6 +85,16 @@ trait UserMethod
         return $this->active;
     }
 
+    /**
+     * @return bool
+     */
+    public function hasDepartment()
+    {
+        if(isset($this->department))
+            return true;
+        else
+            return false;
+    }
     /**
      * @return bool
      */
