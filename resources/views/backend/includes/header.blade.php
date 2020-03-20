@@ -55,6 +55,8 @@
             <div class="dropdown-header text-center">
               <strong>Account</strong>
             </div>
+            <a href="{{ route('frontend.user.account') }}" class="dropdown-item {{ active_class(Route::is('frontend.user.account')) }}">@lang('navs.frontend.user.account')</a>
+
             <a class="dropdown-item" href="{{ route('frontend.auth.logout') }}">
                 <i class="fas fa-lock"></i> @lang('navs.general.logout')
             </a>
