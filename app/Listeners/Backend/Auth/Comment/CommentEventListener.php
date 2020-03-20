@@ -9,6 +9,10 @@ use Illuminate\Queue\InteractsWithQueue;
 use App\Events\Backend\Auth\Comment\CommentCreated;
 use App\Events\Backend\Auth\Comment\CommentSent;
 use App\Events\Backend\Auth\Comment\CommentUpdated;
+use App\Models\Auth\User;
+use App\Notifications\Backend\Auth\Comment\CommentCreatedNotification;
+use App\Notifications\Backend\Auth\Comment\CommentUpdatedNotification;
+use App\Notifications\Backend\Auth\Comment\CommentSentNotification;
 
 
 class CommentEventListener
@@ -18,7 +22,12 @@ class CommentEventListener
      */
     public function onCreated($event)
     {
+        $users = User::where('department', $event->comment->department)->get()->all();
+        foreach($users as $user){
+            $user->notify(new CommentCreatedNotification($event->comment));  
+        }
         logger('Comment Created');
+
     }
 
     /**
@@ -26,6 +35,13 @@ class CommentEventListener
      */
     public function onUpdated($event)
     {
+        $users = User::where('department', $event->comment->department)->get()->all();
+        foreach($users as $user){
+            if($event->comment->last_update_by == $user->id)
+                continue;
+            else
+                $user->notify(new CommentUpdatedNotification($event->comment));  
+        }
         logger('Comment Updated');
     }
 
@@ -34,6 +50,10 @@ class CommentEventListener
      */
     public function onSent($event)
     {
+        $users = User::where('department', $event->comment->department)->get()->all();
+        foreach($users as $user){
+            $user->notify(new CommentSentNotification($event->comment));  
+        }
         logger('Comment Sent');
     }
 
