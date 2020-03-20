@@ -6,19 +6,24 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\Auth\Comment;
+use App\Models\Auth\User;
 
 class CommentSentNotification extends Notification
 {
     use Queueable;
+
+    protected $comment;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Comment $comment)
     {
         //
+        $this->comment = $comment;
     }
 
     /**
@@ -29,7 +34,7 @@ class CommentSentNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -52,9 +57,14 @@ class CommentSentNotification extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
+    public function toDatabase($notifiable)
     {
         return [
+            'tittle' => 'comment forwarded ',
+            'comment_id' => $this->comment->id,
+            'created_by' =>User::find($this->comment->user_id)->email,
+            'department' => $this->comment->department
+
             //
         ];
     }
