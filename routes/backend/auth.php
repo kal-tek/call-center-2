@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Auth\User\UserSessionController;
 use App\Http\Controllers\Backend\Auth\User\UserSocialController;
 use App\Http\Controllers\Backend\Auth\User\UserStatusController;
 use App\Http\Controllers\Backend\Auth\Comment\CommentController;
+use App\Http\Controllers\Backend\Auth\NotificationController;
 
 
 // All route names are prefixed with 'admin.auth'.
@@ -76,7 +77,7 @@ Route::group([
     });
 
     // Comment Management
-    Route::group(['namespace' => 'Role'], function () {
+    Route::group(['namespace' => 'Comment'], function () {
         Route::get('comment', [CommentController::class, 'index'])->name('comment.index');
         Route::get('comment/create', [CommentController::class, 'create'])->name('comment.create');
         Route::post('comment', [CommentController::class, 'store'])->name('comment.store');
@@ -87,6 +88,15 @@ Route::group([
             Route::patch('/', [CommentController::class, 'update'])->name('comment.update');
             Route::patch('/send', [CommentController::class, 'send'])->name('comment.send');
             Route::get('forward', [CommentController::class, 'forward'])->name('comment.forward');
+        });
+    });  
+    // notification Management
+    Route::group(['namespace' => 'notification'], function () {
+        Route::get('notification', [NotificationController::class, 'showAll'])->name('notification.showAll');
+        Route::get('notification/markAllRead', [NotificationController::class, 'marAllRead'])->name('notification.markAllRead');
+
+        Route::group(['prefix' => 'notification/{notification}'], function () {
+            Route::get('/', [NotificationController::class, 'show'])->name('notification.show');
         });
     });
 });
