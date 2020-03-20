@@ -7,6 +7,10 @@ use App\Models\Auth\Comment;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\DB;
 
+
+use App\Events\Backend\Auth\Comment\CommentCreated;
+use App\Events\Backend\Auth\Comment\CommentSent;
+use App\Events\Backend\Auth\Comment\CommentUpdated;
 /**
  * Class CommentRepository.
  */
@@ -45,7 +49,7 @@ class CommentRepository extends BaseRepository
             ]);
             if ($comment) {
 
-                // event(new UserCreated($comment));
+                event(new CommentCreated($comment));
 
                 return $comment;
             }
@@ -74,7 +78,7 @@ class CommentRepository extends BaseRepository
                 'last_update_by' => $data['last_update_by'],
             ])) {
 
-                // event(new UserUpdated($comment));
+                event(new CommentUpdated($comment));
 
                 return $comment;
             }
@@ -93,7 +97,7 @@ class CommentRepository extends BaseRepository
                 'last_update_by' => $data['last_update_by'],
             ])) {
 
-                // event(new UserUpdated($comment));
+            event(new CommentSent($comment));
 
                 return $comment;
             }
